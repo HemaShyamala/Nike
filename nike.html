@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #container {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 25% 75%;
+            /* grid-template: "a b"; */
+            background-color: blanchedalmond;
+            height: auto;
+            min-width: 80%;
+            min-height: 600px;
+        }
+        
+        #lhs {
+            /* grid-area: a; */
+            /* width: 50%; */
+            background-color: rgb(223, 216, 208);
+            height: auto;
+        }
+        
+        #rhs {
+            background-color: rgb(143, 145, 145);
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 30% 30% 30%;
+        }
+        
+        #rhs div {
+            border: 4px solid rgb(240, 234, 234);
+            margin-left: 40px;
+            margin-top: 40px;
+            width: 70%;
+            height: 200px;
+            text-align: center;
+        }
+        
+        input {
+            border-radius: 5px;
+            border: 2px solid black;
+            margin: 20px;
+            width: 150px;
+            height: 20px;
+        }
+        
+        img {
+            width: 120px;
+            height: 100px;
+            margin: auto;
+        }
+        
+        p {
+            margin: 0px;
+            font-size: smaller;
+        }
+        
+        h1 {
+            width: 80%;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            margin: auto;
+            align-items: center;
+            padding-top: 10px;
+            height: 50px;
+            text-decoration-line: underline;
+        }
+        
+        body h1 {
+            text-align: center;
+        }
+        
+        h2 {
+            padding-left: 30px;
+            text-decoration-line: underline;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bolder;
+        }
+        
+        #btn {
+            background-color: yellowgreen;
+            color: white;
+            border: 2px solid green;
+            margin: auto;
+            margin-left: 40px;
+            width: 50%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        #btnUpdate,
+        #btnRemove {
+            background-color: black;
+            border-radius: 5px;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        label {
+            font-size: smaller;
+            font-weight: bolder;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NIKE INVENTORY SYSTEM</h1>
+    <div id="container">
+
+        <div id="lhs">
+            <h2> Product Info:</h2>
+            <form id="form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name" />
+                <label for="price">Price</label>
+                <input type="text" id="price" placeholder="Price" />
+                <label for="des">Description</label>
+                <input type="message" id="des" placeholder="Description" />
+                <label for="del">Delivery Date</label>
+                <input type="date" id="del" placeholder="Estimated Delivery" />
+                <label for="img">Upload Image</label>
+                <input type="file" id="img" placeholder="Image url" accept="image.png/ image.jpeg" />
+            </form>
+            <button onclick="addProduct()" id="btn">Add Product</button>
+        </div>
+        <div id="rhs">
+
+        </div>
+
+</body>
+
+</html>
+<script>
+    function addProduct() {
+
+        var name = document.getElementById("name").value;
+        var price = document.getElementById("price").value;
+        price.id = "amt"
+        var description = document.getElementById("des").value;
+        var delivery = document.getElementById("del").value;
+        var image = document.getElementById("img").src;
+        var update = document.createElement("button")
+        update.textContent = "Update"
+        update.id = "btnUpdate"
+
+        var remove = document.createElement("button")
+        remove.textContent = "Remove"
+        remove.id = "btnRemove"
+
+
+
+
+        var div = document.getElementById("rhs");
+        var div2 = document.createElement("div")
+        var innerDiv1 = document.createElement("p");
+        var innerDiv2 = document.createElement("p");
+        var innerDiv3 = document.createElement("p");
+        var innerDiv4 = document.createElement("p");
+        var innerDiv5 = document.createElement("img");
+
+
+        innerDiv1.textContent = name
+        innerDiv2.textContent = price
+        innerDiv3.textContent = description
+        innerDiv4.textContent = delivery
+        innerDiv5.innerText = image
+
+        div.append(div2);
+        div2.append(innerDiv1);
+        div2.append(innerDiv2);
+        div2.append(innerDiv3);
+        div2.append(innerDiv4);
+        div2.append(innerDiv5);
+        div2.append(update);
+        div2.append(remove);
+
+
+
+
+
+
+        uptate.onclick("click", prompt("Enter new price"));
+
+
+
+    }
+
+    var upt = document.getElementById("btnUpdate");
+    var rem = document.getElementById("btnRemove");
+    uptate.onclick("click", updateButton());
+
+    function updateButton() {
+        var new_price = prompt("Enter new price")
+
+        var p = document.getElementById("amt")
+        p.textContent = new_price;
+    }
+
+    rem.addEventListener("click", removeButton());
+
+
+    function removeButton() {
+        var data = document.getElementById("rhs")
+        div.remove();
+    }
+</script>
